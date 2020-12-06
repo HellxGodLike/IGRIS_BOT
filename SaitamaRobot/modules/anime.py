@@ -169,17 +169,13 @@ def airing(update: Update, context: CallbackContext):
             'Tell Anime Name :) ( /airing <anime name>)')
         return
     variables = {'search': search_str[1]}
-
     response = requests.post(
-
         url, json={
-
             'query': airing_query,
-
             'variables': variables
         }).json()['data']['Media']
-    info = json.get('siteUrl') 
-    image = json.get('bannerImage', None)
+    info = response.get('siteUrl') 
+    image = info.get('bannerImage', None)
     msg = f"*Name*: *{response['title']['romaji']}*({response['title']['native']})\n*ID*: {response['id']}[⁠ ⁠]({image})"
     if response['nextAiringEpisode']:
         time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
