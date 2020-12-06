@@ -175,7 +175,7 @@ def airing(update: Update, context: CallbackContext):
             'variables': variables
         }).json()['data']['Media']
     info = response.get('siteUrl') 
-    image = info.get('anilist.co/anime/','img.anili.st/media/')
+    image = info.replace('anilist.co/anime/','img.anili.st/media/')
     msg = f"*Name*: *{response['title']['romaji']}*({response['title']['native']})\n*ID*: {response['id']}[⁠ ⁠]({image})"
     if response['nextAiringEpisode']:
         time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
