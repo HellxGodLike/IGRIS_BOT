@@ -14,7 +14,7 @@ from telegram import ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 from telegram.utils.helpers import escape_markdown, mention_html
 from SaitamaRobot.modules.helper_funcs.chat_status import user_admin, sudo_plus, is_user_admin
-from SaitamaRobot import dispatcher, OWNER_ID, DRAGONS, DEMONS, DEV_USERS, WOLFS
+from SaitamaRobot import dispatcher, OWNER_ID, DRAGONS, DEMONS, DEV_USERS, WOLVES
 from SaitamaRobot.__main__ import STATS, USER_INFO, TOKEN
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
@@ -90,9 +90,8 @@ def info(bot: Bot, update: Update, args: List[str]):
         text += "\nThis person is one of my support users! " \
                         " He can gban you off the map."
         
-  
-       
-    elif user.id in WOLFS:
+        
+    elif user.id in WOLVES:
         text += "\nThis person has been whitelisted! " \
                         "That means I'm not allowed to ban/kick them."
     
