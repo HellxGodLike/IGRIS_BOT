@@ -1,119 +1,87 @@
-import html
-import json
-import os
-import psutil
-import random
-import time
-import datetime
-from typing import Optional, List
-import re
-import requests
-from telegram.error import BadRequest
-from telegram import Message, Chat, Update, Bot, MessageEntity
-from telegram import ParseMode
-from telegram.ext import CommandHandler, run_async, Filters
-from telegram.utils.helpers import escape_markdown, mention_html
-from SaitamaRobot.modules.helper_funcs.chat_status import user_admin, sudo_plus, is_user_admin
-from SaitamaRobot import dispatcher, OWNER_ID, DEMONS, DRAGONS, DEV_USERS, WOLVES
-from SaitamaRobot.__main__ import STATS, USER_INFO, TOKEN
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
-from SaitamaRobot.modules.helper_funcs.extraction import extract_user
-from SaitamaRobot.modules.helper_funcs.filters import CustomFilters
-import SaitamaRobot.modules.sql.users_sql as sql
-import SaitamaRobot.modules.helper_funcs.cas_api as cas
+from datetime import datetime
 
-@run_async
-def whois(bot: Bot, update: Update, args: List[str]):
-    message = update.effective_message
-    chat = update.effective_chat
-    user_id = extract_user(update.effective_message, args)
-
-    if user_id:
-        user = bot.get_chat(user_id)
-
-    elif not message.reply_to_message and not args:
-        user = message.from_user
-
-    elif not message.reply_to_message and (not args or (
-            len(args) >= 1 and not args[0].startswith("@") and not args[0].isdigit() and not message.parse_entities(
-        [MessageEntity.TEXT_MENTION]))):
-        message.reply_text("I can't extract a user from this.")
-        return
-
-    else:
-        return
-    
-    text = (f"<b>User Information:</b>\n"
-            f"🆔: <code>{user.id}</code>\n"
-            f"👤Name: {html.escape(user.first_name)}")
-
-    if user.last_name:
-        text += f"\n🚹Last Name: {html.escape(user.last_name)}"
-
-    if user.username:
-        text += f"\n♻️Username: @{html.escape(user.username)}"
-
-    text += f"\n☣️Permanent user link: {mention_html(user.id, 'link🚪')}"
-
-    num_chats = sql.get_user_num_chats(user.id)
-    text += f"\n🌐Chat count: <code>{num_chats}</code>"
-    text += "\n🎭Number of profile pics: {}".format(bot.get_user_profile_photos(user.id).total_count)
-   
-    try:
-        user_member = chat.get_member(user.id)
-        if user_member.status == 'administrator':
-            result = requests.post(f"https://api.telegram.org/bot{TOKEN}/getChatMember?chat_id={chat.id}&user_id={user.id}")
-            result = result.json()["result"]
-            if "custom_title" in result.keys():
-                custom_title = result['custom_title']
-                text += f"\n🛡This user holds the title⚜️ <b>{custom_title}</b> here."
-    except BadRequest:
-        pass
-
-   
-
-    if user.id == OWNER_ID:
-        text += "\n🚶🏻‍♂️Uff,This person is my Owner🤴\nI would never do anything against him!."
-        
-    elif user.id in DEV_USERS:
-        text += "\n🚴‍♂️Pling,This person is my dev🤷‍♂️\nI would never do anything against him!."
-        
-    elif user.id in DEAGONS:
-        text += "\n🚴‍♂️Pling,This person is one of my sudo users! " \
-                    "Nearly as powerful as my owner🕊so watch it.."
-        
-    elif user.id in DEMONS:
-        text += "\n🚴‍♂️Pling,This person is one of my support users! " \
-                        "Not quite a sudo user, but can still gban you off the map."
-        
-  
-       
-    elif user.id in WOLVES:
-        text += "\n🚴‍♂️Pling,This person has been whitelisted! " \
-                        "That means I'm not allowed to ban/kick them."
-    
+from pyrogram import filters
+from pyrogram.types import User, Message
+from pyrogram.raw import functions
+from pyrogram.errors import PeerIdInvalid
+from SaitamaRobot import telethn
 
 
-    text +="\n"
-    text += "\nCAS banned: "
-    result = cas.banchecker(user.id)
-    text += str(result)
-    for mod in USER_INFO:
-        if mod.__mod_name__ == "WHOIS":
-            continue
+def ReplyCheck(message: Message):
+    reply_id = None
 
+    if message.reply_to_message:
+        reply_id = message.reply_to_message.message_id
+
+    elif not message.from_user.is_self:
+        reply_id = message.message_id
+
+    return reply_id
+
+
+infotext = (
+    "**[{full_name}](tg://user?id={user_id})**\n"
+    " • UserID: `{user_id}`\n"
+    " • First Name: `{first_name}`\n"
+    " • Last Name: `{last_name}`\n"
+    " • Username: `{username}`\n"
+    " • Last Online: `{last_online}`\n"
+    " • Bio: {bio}"
+)
+
+
+def LastOnline(user: User):
+    if user.is_bot:
+        return ""
+    elif user.status == "recently":
+        return "Recently"
+    elif user.status == "within_week":
+        return "Within the last week"
+    elif user.status == "within_month":
+        return "Within the last month"
+    elif user.status == "long_time_ago":
+        return "A long time ago :("
+    elif user.status == "online":
+        return "Currently Online"
+    elif user.status == "offline":
+        return datetime.fromtimestamp(user.status.date).strftime(
+            "%a, %d %b %Y, %H:%M:%S"
+        )
+
+
+def FullName(user: User):
+    return user.first_name + " " + user.last_name if user.last_name else user.first_name
+
+
+@telethn.on_message(filters.command("whois"))
+async def whois(client, message):
+    cmd = message.command
+    if not message.reply_to_message and len(cmd) == 1:
+        get_user = message.from_user.id
+    elif len(cmd) == 1:
+        get_user = message.reply_to_message.from_user.id
+    elif len(cmd) > 1:
+        get_user = cmd[1]
         try:
-            mod_info = mod.__user_info__(user.id)
-        except TypeError:
-            mod_info = mod.__user_info__(user.id, chat.id)
-        if mod_info:
-            text += "\n" + mod_info
+            get_user = int(cmd[1])
+        except ValueError:
+            pass
     try:
-        profile = bot.get_user_profile_photos(user.id).photos[0][-1]
-        bot.sendChatAction(chat.id, "upload_photo")
-        bot.send_photo(chat.id, photo=profile, caption=(text), parse_mode=ParseMode.HTML, disable_web_page_preview=True)
-    except IndexError:
-        update.effective_message.reply_text(text, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
-
-WHOIS_HANDLER = DisableAbleCommandHandler("whois", whois, pass_args=True)
-dispatcher.add_handler(WHOIS_HANDLER)
+        user = await client.get_users(get_user)
+    except PeerIdInvalid:
+        await message.reply("I don't know that User.")
+        return
+    desc = await client.get_chat(get_user)
+    desc = desc.description
+    await message.reply_text(
+        infotext.format(
+            full_name=FullName(user),
+            user_id=user.id,
+            first_name=user.first_name,
+            last_name=user.last_name if user.last_name else "",
+            username=user.username if user.username else "",
+            last_online=LastOnline(user),
+            bio=desc if desc else "`No bio set up.`",
+        ),
+        disable_web_page_preview=True,
+    )
