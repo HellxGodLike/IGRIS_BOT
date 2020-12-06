@@ -169,9 +169,13 @@ def airing(update: Update, context: CallbackContext):
             'Tell Anime Name :) ( /airing <anime name>)')
         return
     variables = {'search': search_str[1]}
+
     response = requests.post(
+
         url, json={
+
             'query': airing_query,
+
             'variables': variables
         }).json()['data']['Media']
     info = json.get('siteUrl') 
