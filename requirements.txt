@@ -41,3 +41,4 @@ googletrans
 mtranslate
 pyrogram
 tgcrypto
+configparser
