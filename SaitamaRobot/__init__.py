@@ -26,7 +26,12 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
         "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
     )
     quit(1)
+    
+parser = ConfigParser()
+parser.read("config.ini")
+igrisconfig = parser["igrisconfig"]
 
+    
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:
@@ -71,7 +76,7 @@ if ENV:
     URL = os.environ.get('URL', "")  # Does not contain token
     PORT = int(os.environ.get('PORT', 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
-    APP_ID = kigconfig.getint("APP_ID")
+    APP_ID = igrisconfig.getint("APP_ID")
     API_ID = os.environ.get('API_ID', None)
     API_HASH = os.environ.get('API_HASH', None)
     DB_URI = os.environ.get('DATABASE_URL')
