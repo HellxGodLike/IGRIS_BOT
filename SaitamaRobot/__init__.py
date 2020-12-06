@@ -3,7 +3,6 @@ import os
 import sys
 import time
 import spamwatch
-
 import telegram.ext as tg
 from telethon import TelegramClient
 from pyrogram import Client, errors
@@ -30,6 +29,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 parser = ConfigParser()
 parser.read("config.ini")
 kigconfig = parser["kigconfig"]
+    
     
 ENV = bool(os.environ.get('ENV', False))
 
