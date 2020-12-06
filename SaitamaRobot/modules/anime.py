@@ -53,6 +53,8 @@ airing_query = '''
         title {
           romaji
           english
+          siteUrl
+          bannerImage
           native
         }
         nextAiringEpisode {
