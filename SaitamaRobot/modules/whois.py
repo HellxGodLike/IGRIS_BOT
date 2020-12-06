@@ -53,7 +53,7 @@ def FullName(user: User):
     return user.first_name + " " + user.last_name if user.last_name else user.first_name
 
 
-@telethn.on_message(filters.command("whois"))
+@kp.on_message(filters.command("whois"))
 async def whois(client, message):
     cmd = message.command
     if not message.reply_to_message and len(cmd) == 1:
