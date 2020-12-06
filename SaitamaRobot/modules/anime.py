@@ -166,7 +166,7 @@ def airing(update: Update, context: CallbackContext):
     search_str = message.text.split(' ', 1)
     if len(search_str) == 1:
         update.effective_message.reply_text(
-            '**Usage:**':) ( /airing <anime name>)')
+            '**Usage:** `/airing` <anime name>)')
         return
     variables = {'search': search_str[1]}
     response = requests.post(
