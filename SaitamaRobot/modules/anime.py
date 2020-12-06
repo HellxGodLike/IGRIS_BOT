@@ -50,6 +50,7 @@ airing_query = '''
       Media (id: $id, type: ANIME,search: $search) { 
         id
         siteUrl
+        bannerImage 
         episodes
         title {
           romaji
@@ -173,7 +174,7 @@ def airing(update: Update, context: CallbackContext):
             'variables': variables
         }).json()['data']['Media']
     info = response.get('siteUrl')
-    image = info.replace('anilist.co/anime/', 'img.anili.st/media/')
+    image = info.replace('bannerImage', None)
     msg = f"*Name*: *{response['title']['romaji']}*(`{response['title']['native']}`)\n*ID*: `{response['id']}`[⁠ ⁠]({image})"
     if response['nextAiringEpisode']:
         time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
