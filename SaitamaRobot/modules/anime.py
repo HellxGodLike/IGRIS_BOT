@@ -49,12 +49,11 @@ airing_query = '''
     query ($id: Int,$search: String) { 
       Media (id: $id, type: ANIME,search: $search) { 
         id
+        siteUrl
         episodes
         title {
           romaji
           english
-          siteUrl
-          bannerImage
           native
         }
         nextAiringEpisode {
@@ -159,7 +158,6 @@ query ($id: Int,$search: String) {
 
 url = 'https://graphql.anilist.co'
 
-
 @run_async
 def airing(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -174,9 +172,9 @@ def airing(update: Update, context: CallbackContext):
             'query': airing_query,
             'variables': variables
         }).json()['data']['Media']
-    info = response.get('siteUrl') 
-    image = info.replace('anilist.co/anime/','img.anili.st/media/')
-    msg = f"*Name*: *{response['title']['romaji']}*({response['title']['native']})\n*ID*: {response['id']}[⁠ ⁠]({image})"
+    info = response.get('siteUrl')
+    image = info.replace('anilist.co/anime/', 'img.anili.st/media/')
+    msg = f"*Name*: *{response['title']['romaji']}*(`{response['title']['native']}`)\n*ID*: `{response['id']}`[⁠ ⁠]({image})"
     if response['nextAiringEpisode']:
         time = response['nextAiringEpisode']['timeUntilAiring'] * 1000
         time = t(time)
@@ -184,7 +182,6 @@ def airing(update: Update, context: CallbackContext):
     else:
         msg += f"\n*Episode*:{response['episodes']}\n*Status*: `N/A`"
     update.effective_message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
-
 
 @run_async
 def anime(update: Update, context: CallbackContext):
