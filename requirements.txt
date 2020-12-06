@@ -39,3 +39,6 @@ tabulate
 parsel
 googletrans
 mtranslate
+pyrogram
+
+tgcrypto
