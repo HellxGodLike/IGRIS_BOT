@@ -5,7 +5,7 @@
 
 A modular Telegram Python bot running on python3 with a sqlalchemy database.
 
-Originally a Marie fork, Saitama evolved further and was built to be more robust and more dedicated to Anime Chats. 
+Originally a Marie fork, IGRIS evolved further and was built to be more robust and more dedicated to Anime Chats. 
 
 Can be found on telegram as [IGRISROBOT](https://t.me/IGRISROBOT).
 
@@ -191,7 +191,7 @@ through the `/stats` command, which is only available to the bot owner.
 
 Once you've set up your database and your configuration is complete, simply run the bat file(if on windows) or run (Linux):
 
-`python3 -m SaitamaRobot`
+`python3 -m IGRISROBOT`
 
 You can use [nssm](https://nssm.cc/usage) to install the bot as service on windows and set it to restart on /gitpull 
 Make sure to edit the start and restart bats to your needs. 
@@ -208,8 +208,6 @@ For starters click on this button
 The bot is based on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)
 This repo was just revamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
 
-Also, missing proper credit for blacklistusers taken from TheRealPhoenixBot (will add it later, this note says unless it is done)
-
 Any other authorship/credits can be seen through the commits.
 
-Should any be missing kindly let us know at [One Punch Support](https://t.me/OnePunchSupport) or simply submit a pull request on the readme.
+Should any be missing kindly let us know at [IGRIS BOT SUPPORT](https://t.me/IGRISBOTSUPPORT) or simply submit a pull request on the readme.
