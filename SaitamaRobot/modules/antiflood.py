@@ -4,6 +4,7 @@ from typing import Optional, List
 from telegram import Message, Chat, Update, Bot, User, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, ChatPermissions
 
 from SaitamaRobot import TIGERS, WOLVES, dispatcher
+from SaitamaRobot.modules.sql.approve_sql import is_approved
 from SaitamaRobot.modules.helper_funcs.chat_status import (
     bot_admin, can_restrict, connection_status, is_user_admin, user_admin,
     user_admin_no_reply)
@@ -36,6 +37,10 @@ def check_flood(update, context) -> str:
         sql.update_flood(chat.id, None)
         return ""
 
+      # ignore approved users
+    if is_approved(chat.id, user.id):
+        sql.update_flood(chat.id, None)
+        return
     should_ban = sql.update_flood(chat.id, user.id)
     if not should_ban:
         return ""
