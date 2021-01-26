@@ -209,10 +209,11 @@ __handlers__ = [APPROVE, DISAPPROVE, APPROVED, APPROVAL]
 
 
 
+__mod_name__ = "Approval"
 
 
+__help__ = """
 
-"""
 Here is the help for the Approval module:
  
 Sometimes, you might trust a user not to send unwanted content.
