@@ -1,6 +1,6 @@
 import html
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from SaitamaRobot import dispatcher, SUDO_USERS
+from SaitamaRobot import dispatcher, DRAGONS
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, CallbackQueryHandler, Filters, run_async
 import SaitamaRobot.modules.sql.approve_sql as sql
