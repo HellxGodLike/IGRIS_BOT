@@ -9,10 +9,9 @@ from SaitamaRobot.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
-
-@run_async
 @loggable
 @user_admin
+@run_async
 def approve(update, context):
     message = update.effective_message
     chat_title = message.chat.title
@@ -49,13 +48,15 @@ def approve(update, context):
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#APPROVED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}")
+        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+    )
 
     return log_message
 
-@run_async
+
 @loggable
 @user_admin
+@run_async
 def disapprove(update, context):
     message = update.effective_message
     chat_title = message.chat.title
@@ -80,17 +81,20 @@ def disapprove(update, context):
         return ""
     sql.disapprove(message.chat_id, user_id)
     message.reply_text(
-        f"{member.user['first_name']} is no longer approved in {chat_title}.")
+        f"{member.user['first_name']} is no longer approved in {chat_title}."
+    )
     log_message = (
         f"<b>{html.escape(chat.title)}:</b>\n"
         f"#UNAPPROVED\n"
         f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}")
+        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+    )
 
     return log_message
 
-@run_async
+
 @user_admin
+@run_async
 def approved(update, context):
     message = update.effective_message
     chat_title = message.chat.title
@@ -106,8 +110,9 @@ def approved(update, context):
     else:
         message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
-@run_async
+
 @user_admin
+@run_async
 def approval(update, context):
     message = update.effective_message
     chat = update.effective_chat
@@ -134,26 +139,31 @@ def unapproveall(update: Update, context: CallbackContext):
     chat = update.effective_chat
     user = update.effective_user
     member = chat.get_member(user.id)
-    if member.status != "creator" and user.id not in SUDO_USERS:
+    if member.status != "creator" and user.id not in DRAGONS:
         update.effective_message.reply_text(
-            "Only the chat owner can unapprove all users at once.")
+            "Only the chat owner can unapprove all users at once."
+        )
     else:
-        buttons = InlineKeyboardMarkup([
+        buttons = InlineKeyboardMarkup(
             [
-                InlineKeyboardButton(
-                    text="Unapprove all users",
-                    callback_data="unapproveall_user")
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Cancel", callback_data="unapproveall_cancel")
-            ],
-        ])
+                [
+                    InlineKeyboardButton(
+                        text="Unapprove all users", callback_data="unapproveall_user"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="Cancel", callback_data="unapproveall_cancel"
+                    )
+                ],
+            ]
+        )
         update.effective_message.reply_text(
             f"Are you sure you would like to unapprove ALL users in {chat.title}? This action cannot be undone.",
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
+
 
 @run_async
 def unapproveall_btn(update: Update, context: CallbackContext):
@@ -162,7 +172,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
     message = update.effective_message
     member = chat.get_member(query.from_user.id)
     if query.data == "unapproveall_user":
-        if member.status == "creator" or query.from_user.id in SUDO_USERS:
+        if member.status == "creator" or query.from_user.id in DRAGONS:
             users = []
             approved_users = sql.list_approved(chat.id)
             for i in approved_users:
@@ -176,9 +186,8 @@ def unapproveall_btn(update: Update, context: CallbackContext):
         if member.status == "member":
             query.answer("You need to be admin to do this.")
     elif query.data == "unapproveall_cancel":
-        if member.status == "creator" or query.from_user.id in SUDO_USERS:
-            message.edit_text(
-                "Removing of all approved users has been cancelled.")
+        if member.status == "creator" or query.from_user.id in DRAGONS:
+            message.edit_text("Removing of all approved users has been cancelled.")
             return ""
         if member.status == "administrator":
             query.answer("Only owner of the chat can do this.")
@@ -186,14 +195,26 @@ def unapproveall_btn(update: Update, context: CallbackContext):
             query.answer("You need to be admin to do this.")
 
 
+__help__ = """
+Sometimes, you might trust a user not to send unwanted content.
+Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
 
-APPROVE = DisableAbleCommandHandler("approve", approve, filters=Filters.chat_type.groups)
-DISAPPROVE = DisableAbleCommandHandler("unapprove", disapprove,  filters=Filters.chat_type.groups)
-APPROVED = DisableAbleCommandHandler("approved", approved,  filters=Filters.chat_type.groups)
-APPROVAL = DisableAbleCommandHandler("approval", approval,  filters=Filters.chat_type.groups)
-UNAPPROVEALL = DisableAbleCommandHandler("unapproveall", unapproveall, filters=Filters.chat_type.groups)
-UNAPPROVEALL_BTN = CallbackQueryHandler(
-    unapproveall_btn, pattern=r"unapproveall_.*")
+That's what approvals are for - approve of trustworthy users to allow them to send 
+
+*Admin commands:*
+- `/approval`*:* Check a user's approval status in this chat.
+- `/approve`*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
+- `/unapprove`*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
+- `/approved`*:* List all approved users.
+- `/unapproveall`*:* Unapprove *ALL* users in a chat. This cannot be undone.
+"""
+
+APPROVE = DisableAbleCommandHandler("approve", approve)
+DISAPPROVE = DisableAbleCommandHandler("unapprove", disapprove)
+APPROVED = DisableAbleCommandHandler("approved", approved)
+APPROVAL = DisableAbleCommandHandler("approval", approval)
+UNAPPROVEALL = DisableAbleCommandHandler("unapproveall", unapproveall)
+UNAPPROVEALL_BTN = CallbackQueryHandler(unapproveall_btn, pattern=r"unapproveall_.*")
 
 dispatcher.add_handler(APPROVE)
 dispatcher.add_handler(DISAPPROVE)
@@ -205,28 +226,3 @@ dispatcher.add_handler(UNAPPROVEALL_BTN)
 __mod_name__ = "Approvals"
 __command_list__ = ["approve", "unapprove", "approved", "approval"]
 __handlers__ = [APPROVE, DISAPPROVE, APPROVED, APPROVAL]
-
-
-
-
-__mod_name__ = "Approval"
-
-
-__help__ = """
-
-Here is the help for the Approval module:
- 
-Sometimes, you might trust a user not to send unwanted content.
-Maybe not enough to make them admin, but you might be ok with auto warns, blacklists, and antiflood not applying to them.
-
-That's what approvals are for - approve of trustworthy users to allow them to send 
-
-Admin commands:
-- /approval: Check a user's approval status in this chat.
-
-Admin commands:
-- /approve: Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-- /unapprove: Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-- /approved: List all approved users.
-- /unapproveall: Unapprove ALL users in a chat. This cannot be undone.
-"""
