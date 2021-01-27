@@ -38,7 +38,6 @@ def stickerid(update: Update, context: CallbackContext):
         )
 
 @run_async
-@typing_action
 def kang(update, context):
     msg = update.effective_message
     user = update.effective_user
