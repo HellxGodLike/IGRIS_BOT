@@ -40,7 +40,7 @@ def stickerid(update: Update, context: CallbackContext):
 
 
 @run_async
-def addsticker(update, context):
+def kang(update, context):
     msg = update.effective_message
     user = update.effective_user
     args = context.args
@@ -516,7 +516,7 @@ def makepack_internal(
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
 
 @run_async
-def kang(update, context):
+def getsticker(update, context):
     msg = update.effective_message
     chat_id = update.effective_chat.id
     if msg.reply_to_message and msg.reply_to_message.sticker:
