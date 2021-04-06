@@ -7,6 +7,8 @@ __help__ = """
 
  • /ytp <similar to playm but don't need to reply the song> Play song from YouTube
 
+ • /deezer <get your song>
+
  • IMPORTANT REQUIREMENTS
 
  `Add @IGRISMUSIC in group before playing any song else this will not work'
