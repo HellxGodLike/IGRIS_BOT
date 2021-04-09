@@ -471,6 +471,17 @@ Admin only:
  ✶ `/blstickermode <ban/tban/mute/tmute>`*:* sets up a default action on what to do if users use blacklisted stickers. (`tmute seems broken right now`)
 Note:
  ✶ `<sticker link>` can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message.
+
+*BlueText Cleaning*
+Blue text cleaner removed any made up commands that people send in your chat.
+ ✶ `/cleanblue <on/off/yes/no>`*:* clean commands after sending
+ ✶ `/ignoreblue <word>`*:* prevent auto cleaning of the command
+ ✶ `/unignoreblue <word>`*:* remove prevent auto cleaning of the command
+ ✶ `/listblue`*:* list currently whitelisted commands
+ 
+ *Following are Hunters only commands, admins cannot use these:*
+ ✶ `/gignoreblue <word>`*:* globally ignorea bluetext cleaning of saved word across IGRIS. 
+ ✶ `/ungignoreblue <word>`*:* remove said command from global cleaning list
 """
 BLACKLIST_HANDLER = DisableAbleCommandHandler(
     "blacklist", blacklist, pass_args=True, admin_ok=True)
