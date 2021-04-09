@@ -174,17 +174,17 @@ def config(client, message):
 __help__ = """
 *ForceSubscribe:*
 *Channel Manageer Inbuilt*
-✪ I can stop texting members of your group until they subscribe to one or more channels.
-✪ If members are not connected to your channel I can mute them and tell them to join the channel and I can mute them at the push of a button.
+× I can stop texting members of your group until they subscribe to one or more channels.
+× If members are not connected to your channel I can mute them and tell them to join the channel and I can mute them at the push of a button.
 *Setup*
 1) First of all add me in the group as admin with ban users permission and in the channel as admin.
 Note: Only creator of the group can setup me and i will not allow force subscribe again if not done so.
  
 *Commmands*
-• `/ForceSubscribe - To get the current settings.
-• `/ForceSubscribe no/off/disable - To turn of ForceSubscribe.
-• `/ForceSubscribe {channel username} - To turn on and setup the channel.
-• `/ForceSubscribe clear - To unmute all members who muted by me.
+✶ `/ForceSubscribe - To get the current settings.
+✶ `/ForceSubscribe no/off/disable - To turn of ForceSubscribe.
+✶ `/ForceSubscribe {channel username} - To turn on and setup the channel.
+✶ `/ForceSubscribe clear - To unmute all members who muted by me.
 
 Note: /FSub is an alias of /ForceSubscribe
  
