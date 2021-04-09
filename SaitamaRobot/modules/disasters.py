@@ -524,71 +524,16 @@ def guild(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-*⚠️ Notice:*
-Commands listed here only work for users with special access are mainly used for troubleshooting, debugging purposes.
-Group admins/group owners do not need these commands. 
 
- ╔ *List all special users:*
- ╠ `/S-RANK`*:* Lists all S-RANK HUNTRRS
- ╠ `/A-RANK`*:* Lists all A-RANK HUNTERS
- ╠ `/B-RANK`*:* Lists all B-RANK HUNTERS
- ╠ `/C-RANK`*:* Lists all C-RANK HUNTERS
- ╚ `/guild`*:* Lists all SOLO•GUILD members
+ *Remote commands:*
+ `/rban user group`*:* Remote ban
+ `/runban user group`*:* Remote un-ban
+ `/rpunch user group`*:* Remote punch
+ `/rmute user group`*:* Remote mute
+ `/runmute user group`*:* Remote un-mute
+ `/ginfo username/link/ID`*:* Pulls info panel for entire group
 
- ╔ *Ping:*
- ╠ `/ping`*:* gets ping time of bot to telegram server
- ╚ `/pingall`*:* gets all listed ping times
-
- ╔ *Broadcast: (Bot owner only)*
- ╠  *Note:* This supports basic markdown
- ╠ `/broadcastall`*:* Broadcasts everywhere
- ╠ `/broadcastusers`*:* Broadcasts too all users
- ╚ `/broadcastgroups`*:* Broadcasts too all groups
-
- ╔ *Groups Info:*
- ╠ `/groups`*:* List the groups with Name, ID, members count as a txt
- ╚ `/getchats`*:* Gets a list of group names the user has been seen in. Bot owner only
-
- ╔ *Blacklist:* 
- ╠ `/ignore`*:* Blacklists a user from 
- ╠  using the bot entirely
- ╚ `/notice`*:* Whitelists the user to allow bot usage
-
- ╔ *Speedtest:*
- ╚ `/speedtest`*:* Runs a speedtest and gives you 2 options to choose from, text or image output
-
- ╔ *Global Bans:*
- ╠ `/gban user reason`*:* Globally bans a user
- ╚ `/ungban user reason`*:* Unbans the user from the global bans list
-
- ╔ *Module loading:*
- ╠ `/listmodules`*:* Lists names of all modules
- ╠ `/load modulename`*:* Loads the said module to 
- ╠   memory without restarting.
- ╠ `/unload modulename`*:* Loads the said module from
- ╚   memory without restarting.memory without restarting the bot 
-
- ╔ *Remote commands:*
- ╠ `/rban user group`*:* Remote ban
- ╠ `/runban user group`*:* Remote un-ban
- ╠ `/rpunch user group`*:* Remote punch
- ╠ `/rmute user group`*:* Remote mute
- ╠ `/runmute user group`*:* Remote un-mute
- ╚ `/ginfo username/link/ID`*:* Pulls info panel for entire group
-
- ╔ *Windows self hosted only:*
- ╠ `/reboot`*:* Restarts the bots service
- ╚ `/gitpull`*:* Pulls the repo and then restarts the bots service
-
- ╔ *Chatbot:* 
- ╚ `/listaichats`*:* Lists the chats the chatmode is enabled in
  
- ╔ *Debugging and Shell:* 
- ╠ `/debug <on/off>`*:* Logs commands to updates.txt
- ╠ `/logs`*:* Run this in support group to get logs in pm
- ╠ `/eval`*:* Self explanatory
- ╠ `/sh`*:* Self explanator
- ╚ `/py`*:* Self explanatory
 
 Visit @{SUPPORT_CHAT} for more information.
 """
@@ -626,7 +571,7 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(GUILD_HANDLER)
 
-__mod_name__ = "HUNTERS"
+__mod_name__ = "Admin"
 __handlers__ = [
     SUDO_HANDLER, SUPPORT_HANDLER, TIGER_HANDLER, WHITELIST_HANDLER,
     UNSUDO_HANDLER, UNSUPPORT_HANDLER, UNTIGER_HANDLER, UNWHITELIST_HANDLER,
