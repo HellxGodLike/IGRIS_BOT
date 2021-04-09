@@ -259,7 +259,12 @@ __help__ = """
  ✶ `/toss`*:* Tosses A coin
  ✶ `/roll`*:* Roll a dice & get you a number
  ✶ `/police`*:* Sends a police emoji animation.
+  ------------------
+*Time*
+ ✶ `/time <query>`*:* Gives information about a timezone.
 
+*Available queries:* Country Code/Country Name/Timezone Name
+ ✶ 🕐 [Timezones list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 """
 
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
