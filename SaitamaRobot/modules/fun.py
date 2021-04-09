@@ -269,6 +269,9 @@ __help__ = """
 *Encrypt and Decrypt*
  ✶ /encrypt*:* Encrypts The Given Text
  ✶ /decrypt*:* Decrypts Previously Ecrypted Text
+   - - - - - - - - - - - 
+*GPS*
+ ✶ /gps <location>*:* Get gps location.
 """
 
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
