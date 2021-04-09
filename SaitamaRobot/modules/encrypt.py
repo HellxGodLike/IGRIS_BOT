@@ -1,6 +1,6 @@
-from MashaRoBot import telethn as tbot
+from Saitama import telethn as tbot
 import os
-from MashaRoBot.events import register
+from Saitama.events import register
 import secureme
 
 @register(pattern="^/encrypt ?(.*)")
