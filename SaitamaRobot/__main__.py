@@ -63,12 +63,11 @@ I'm a Shadow From Solo Leveling,I will help you manage your groups! Have a look 
 the things I can help you with.
 
 *Main* commands available:
- • /help: PM's you this message.
- • /help <module name>: PM's you info about that module.
- • /donate: information on how to donate!
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
+ ✶ add this below /help: PM's you this message.
+ ✶ add this below /help <module name>: PM's you info about that module.
+ ✶ add this below /settings:
+   ✶ add this below in PM: will send you your settings for all supported modules.
+   ✶ add this below   add this below  in a group: will redirect you to pm, with all that chat's settings.
 
 
 {}
