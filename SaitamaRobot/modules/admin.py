@@ -447,6 +447,16 @@ __help__ = """
  • `/promote`*:* promotes the user replied to
  • `/demote`*:* demotes the user replied to
  • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
+ 
+ *Remote commands*
+ 
+ •  `/rban user group`*:* Remote ban
+ • `/runban user group`*:* Remote un-ban
+ •  `/rpunch user group`*:* Remote punch
+ •  `/rmute user group`*:* Remote mute
+ •  `/runmute user group`*:* Remote un-mute
+ •  `/ginfo username/link/ID`*:* Pulls info panel for entire group
+
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
