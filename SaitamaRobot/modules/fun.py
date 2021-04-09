@@ -239,25 +239,26 @@ def table(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.TABLE))
 
 __help__ = """
- • `/runs`*:* reply a random string from an array of replies
- • `/slap`*:* slap a user, or get slapped if not a reply 🌝
- • `/shrug`*:* get shrug XD
- • `/table`*:* get flip/unflip :v
- • `/bluetext`*:* check urself :V
- • `/rlg`*:* Join ears,nose,mouth and create an emo ;-;
- • `/shout <keyword>`*:* write anything you want to give loud shout
- • `/weebify <text>`*:* returns a weebified text
- • `/sanitize`*:* always use this before `/pat` or any contact
- • `/pat`*:* pats a user, or get patted (^-^)
+ ✶ `/runs`*:* reply a random string from an array of replies
+ ✶ `/slap`*:* slap a user, or get slapped if not a reply 🌝
+ ✶ `/shrug`*:* get shrug XD
+ ✶ `/table`*:* get flip/unflip :v
+ ✶ `/bluetext`*:* check urself :V
+ ✶ `/rlg`*:* Join ears,nose,mouth and create an emo ;-;
+ ✶ `/shout <keyword>`*:* write anything you want to give loud shout
+ ✶ `/weebify <text>`*:* returns a weebified text
+ ✶ `/sanitize`*:* always use this before `/pat` or any contact
+ ✶ `/pat`*:* pats a user, or get patted (^-^)
   - - - - - - - - - -
-• *Games* 🎲 *:*
- • `/truth`*:* Get ready to reveal a surprising truth🤫
- • `/dare`*:* A dare is on way 😈
- • `/igris`*:* Summon up IGRIS
- • `/insult`*:* Insult the person
- • `/decide`*:* Randomly answers yes/no/maybe/idk
- • `/toss`*:* Tosses A coin
- • `/roll`*:* Roll a dice & get you a number
+✶ *Games* 🎲 *:*
+ ✶`/truth`*:* Get ready to reveal a surprising truth🤫
+ ✶ `/dare`*:* A dare is on way 😈
+ ✶ `/igris`*:* Summon up IGRIS
+ ✶ `/insult`*:* Insult the person
+ ✶ `/decide`*:* Randomly answers yes/no/maybe/idk
+ ✶ `/toss`*:* Tosses A coin
+ ✶ `/roll`*:* Roll a dice & get you a number
+ ✶ `/police`*:* Sends a police emoji animation.
 
 """
 
