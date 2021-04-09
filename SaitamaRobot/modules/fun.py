@@ -159,6 +159,33 @@ def pat(update: Update, context: CallbackContext):
         temp = random.choice(fun_strings.PAT_TEMPLATES)
         reply = temp.format(user1=user1, user2=user2)
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
+        
+@run_async
+@typing_action
+def lyrics(update: Update, context: CallbackContext):
+    bot, args = context.bot, context.args
+    msg = update.effective_message
+    query = " ".join(args)
+    song = ""
+    if not query:
+        msg.reply_text("You haven't specified which song to look for!")
+        return
+    song = Song.find_song(query)
+    if song:
+        if song.lyrics:
+            reply = song.format()
+        else:
+            reply = "Couldn't find any lyrics for that song!"
+    else:
+        reply = "Song not found!"
+    if len(reply) > 4090:
+        with open("lyrics.txt", 'w') as f:
+            f.write(f"{reply}\n\n\nOwO UwU OmO")
+        with open("lyrics.txt", 'rb') as f:
+            msg.reply_document(document=f,
+            caption="Message length exceeded max limit! Sending as a text file.")
+    else:
+        msg.reply_text(reply)
 
 
 @run_async
@@ -250,6 +277,7 @@ BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
 RLG_HANDLER = DisableAbleCommandHandler("rlg", rlg)
 DECIDE_HANDLER = DisableAbleCommandHandler("decide", decide)
 TABLE_HANDLER = DisableAbleCommandHandler("table", table)
+LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics)
 
 dispatcher.add_handler(INSULT_HANDLER)
 dispatcher.add_handler(ARISE_HANDLER)                                          
@@ -267,14 +295,15 @@ dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
+dispatcher.add_handler(LYRICS_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
-    "runs", "slap", "roll", "toss", "shrug", "bluetext", "rlg", "decide",
+    "runs", "slap", "roll", "toss", "shrug", "bluetext", "rlg", "decide","lyrics".
     "table", "pat", "sanitize"
 ]
 __handlers__ = [
     RUNS_HANDLER,IGRIS_HANDLER,ARISE_HANDLER,TRUTH_HANDLER, DARE_HANDLER, SLAP_HANDLER, PAT_HANDLER, ROLL_HANDLER, TOSS_HANDLER,
     SHRUG_HANDLER, BLUETEXT_HANDLER, RLG_HANDLER, DECIDE_HANDLER, TABLE_HANDLER,INSULT_HANDLER, 
-    SANITIZE_HANDLER
+    SANITIZE_HANDLER, LYRICS_HANDLER
 ]
