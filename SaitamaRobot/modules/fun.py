@@ -265,6 +265,10 @@ __help__ = """
 
 *Available queries:* Country Code/Country Name/Timezone Name
  ✶ 🕐 [Timezones list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+  - - - - - - - - - - -
+*Encrypt and Decrypt*
+ ✶ /encrypt*:* Encrypts The Given Text
+ ✶ /decrypt*:* Decrypts Previously Ecrypted Text
 """
 
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
