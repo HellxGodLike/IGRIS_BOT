@@ -523,20 +523,6 @@ def guild(update: Update, context: CallbackContext):
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-__help__ = f"""
-
- *Remote commands:*
- `/rban user group`*:* Remote ban
- `/runban user group`*:* Remote un-ban
- `/rpunch user group`*:* Remote punch
- `/rmute user group`*:* Remote mute
- `/runmute user group`*:* Remote un-mute
- `/ginfo username/link/ID`*:* Pulls info panel for entire group
-
- 
-
-Visit @{SUPPORT_CHAT} for more information.
-"""
 
 SUDO_HANDLER = CommandHandler(("addsudo", "addsrank"), addsudo)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "addarank"), addsupport)
@@ -571,7 +557,6 @@ dispatcher.add_handler(SUPPORTLIST_HANDLER)
 dispatcher.add_handler(SUDOLIST_HANDLER)
 dispatcher.add_handler(GUILD_HANDLER)
 
-__mod_name__ = "Admin"
 __handlers__ = [
     SUDO_HANDLER, SUPPORT_HANDLER, TIGER_HANDLER, WHITELIST_HANDLER,
     UNSUDO_HANDLER, UNSUPPORT_HANDLER, UNTIGER_HANDLER, UNWHITELIST_HANDLER,
