@@ -62,12 +62,12 @@ Hey there! My name is *{}*.
 I'm a Shadow From Solo Leveling,I will help you manage your groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 
-*Main* commands available:
+*Main* [▼・ᴥ・▼](https://telegra.ph/file/44bc9ad06db204bff2bed.jpg) Commands available:
  ✶ add this below /help: PM's you this message.
  ✶ add this below /help <module name>: PM's you info about that module.
  ✶ add this below /settings:
-   ✶ add this below in PM: will send you your settings for all supported modules.
-   ✶ add this below   add this below  in a group: will redirect you to pm, with all that chat's settings.
+   × add this below in PM: will send you your settings for all supported modules.
+   × add this below   add this below  in a group: will redirect you to pm, with all that chat's settings.
 
 
 {}
@@ -187,8 +187,13 @@ def start(update: Update, context: CallbackContext):
                               url=f"https://t.me/IGRISBOTSUPPORT"),
                               InlineKeyboardButton(
                               text="✨Updates Channel✨",
-                              url="https://t.me/IGRISROBOT_SUPPORT")
-                          ]])) 
+                              url="https://t.me/IGRISROBOT_SUPPORT")))
+                          ],
+                          [    
+                              InlineKeyboardButton(
+                              text="Help❓", callback_data="help_back"
+                          ),
+                          ]]
     else:
         update.effective_message.reply_text(
             "I'm online!\n<b>Up since:</b> <code>{}</code>".format(uptime),
