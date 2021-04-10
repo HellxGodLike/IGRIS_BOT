@@ -54,3 +54,4 @@ google_trans_new
 #googletrans
 youtube_search
 secureme
+html2text
