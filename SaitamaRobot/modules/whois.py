@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import User, Message
 from pyrogram.raw import functions
 from pyrogram.errors import PeerIdInvalid
-from SaitamaRobot import pbot
+from SaitamaRobot import IgrisPyro
 
 def ReplyCheck(message: Message):
     reply_id = None
