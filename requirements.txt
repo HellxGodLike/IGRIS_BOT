@@ -53,5 +53,6 @@ google_trans_new
 #googletrans
 search_engine_parser
 bing_image_downloader
+bs4
 html2text
 countryinfo
