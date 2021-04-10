@@ -56,3 +56,5 @@ bing_image_downloader
 bs4
 html2text
 countryinfo
+youtube_search_python
+youtube_search
