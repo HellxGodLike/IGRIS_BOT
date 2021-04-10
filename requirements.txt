@@ -15,7 +15,7 @@ tswift
 nltk
 pyrogram
 psutil
-aiohttp>=2.2.5
+aiohttp
 Pillow>=4.2.0
 CurrencyConverter
 googletrans
@@ -59,3 +59,4 @@ secureme
 html2text
 flag
 bs4
+youtube_search_python
