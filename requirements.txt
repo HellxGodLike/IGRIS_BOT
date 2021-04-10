@@ -43,6 +43,7 @@ mtranslate
 pyrogram
 tgcrypto
 configparser
+youtubesearchpython
 pytz
 hachoir
 pybase64
