@@ -1,8 +1,8 @@
 import os
 from Saitama import telethn as tbot
 from geopy.geocoders import Nominatim
-from Saitama.events import register
-from Saitama import *
+from SaitamaRobot.events import register
+from SaitamaRobot import *
 from telethon import *
 from telethon.tl import *
 
