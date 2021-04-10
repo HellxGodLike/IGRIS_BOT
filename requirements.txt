@@ -58,3 +58,4 @@ youtube_search
 secureme
 html2text
 flag
+bs4
