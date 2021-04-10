@@ -320,8 +320,7 @@ dispatcher.add_handler(LYRICS_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
-    "runs", "slap", "roll", "toss", "shrug", "bluetext", "rlg", "decide","lyrics".
-    "table", "pat", "sanitize"
+    "runs", "slap", "roll", "toss", "shrug", "bluetext", "rlg", "decide","lyrics","table", "pat", "sanitize"
 ]
 __handlers__ = [
     RUNS_HANDLER,IGRIS_HANDLER,ARISE_HANDLER,TRUTH_HANDLER, DARE_HANDLER, SLAP_HANDLER, PAT_HANDLER, ROLL_HANDLER, TOSS_HANDLER,
