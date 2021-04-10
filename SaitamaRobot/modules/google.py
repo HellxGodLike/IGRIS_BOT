@@ -13,7 +13,7 @@ async def is_register_admin(chat, user):
 
         return isinstance(
             (
-                await client(functions.channels.GetParticipantRequest(chat, user))
+                await telethn(functions.channels.GetParticipantRequest(chat, user))
             ).participant,
             (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
@@ -21,7 +21,7 @@ async def is_register_admin(chat, user):
 
         ui = await client.get_peer_id(user)
         ps = (
-            await client(functions.messages.GetFullChatRequest(chat.chat_id))
+            await telethn(functions.messages.GetFullChatRequest(chat.chat_id))
         ).full_chat.participants.participants
         return isinstance(
             next((p for p in ps if p.user_id == ui), None),
