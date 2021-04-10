@@ -11,6 +11,7 @@ pynewtonmath
 spongemock
 zalgo-text
 geopy
+tswift
 nltk
 pyrogram
 psutil
