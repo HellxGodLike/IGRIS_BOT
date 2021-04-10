@@ -1,16 +1,16 @@
 # credits @RoseLoverX
-from Saitama import telethn as tbot
-from Saitama.events import register
+from SaitamaRobot import telethn as tbot
+from SaitamaRobot.events import register
 import os
 import asyncio
 import os
 import time
 from datetime import datetime
-from Saitama import OWNER_ID
-from Saitama import TEMP_DOWNLOAD_DIRECTORY as path
-from Saitama import TEMP_DOWNLOAD_DIRECTORY
+from SaitamaRobot import OWNER_ID
+from SaitamaRobot import TEMP_DOWNLOAD_DIRECTORY as path
+from SaitamaRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
-water = './Saitama/resources/masha.jpg'
+water = './SaitamaRobot/resources/masha.jpg'
 client = tbot
 
 @register(pattern=r"^/send ?(.*)")
@@ -22,7 +22,7 @@ async def Prof(event):
     thumb = water
     message_id = event.message.id
     input_str = event.pattern_match.group(1)
-    the_plugin_file = "./Saitama/modules/{}.py".format(input_str)
+    the_plugin_file = "./SaitamaRobot/modules/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
      message_id = event.message.id
      await event.client.send_file(
@@ -37,7 +37,7 @@ async def Prof(event):
         await event.reply("No File Found!")
 
 
-from Saitama.events import load_module
+from SaitamaRobot.events import load_module
 import asyncio
 import os
 from datetime import datetime
@@ -56,7 +56,7 @@ async def install(event):
             downloaded_file_name = (
                 await event.client.download_media(  # pylint:disable=E0602
                     await event.get_reply_message(),
-                    "Saitama/modules/",  # pylint:disable=E0602
+                    "SaitamaRobot/modules/",  # pylint:disable=E0602
                 )
             )
             if "(" not in downloaded_file_name:
@@ -81,15 +81,15 @@ async def install(event):
     await asyncio.sleep(3)
     await event.delete()
 
-from Saitama import telethn as tbot, OWNER_ID, DEV_USERS
-from Saitama.events import register
+from SaitamaRobot import telethn as tbot, OWNER_ID, DEV_USERS
+from SaitamaRobot.events import register
 import os
 import asyncio
 import os
 import time
 from datetime import datetime
-from Saitama import TEMP_DOWNLOAD_DIRECTORY as path
-from Saitama import TEMP_DOWNLOAD_DIRECTORY
+from SaitamaRobot import TEMP_DOWNLOAD_DIRECTORY as path
+from SaitamaRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
 import asyncio
 import os
@@ -129,7 +129,7 @@ client = tbot
 import time
 from io import BytesIO
 from pathlib import Path
-from Saitama import telethn as borg
+from SaitamaRobot import telethn as borg
 from telethon import functions, types
 from telethon.errors import PhotoInvalidDimensionsError
 from telethon.errors.rpcerrorlist import YouBlockedUserError
