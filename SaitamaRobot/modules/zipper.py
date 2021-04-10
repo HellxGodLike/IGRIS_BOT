@@ -1,7 +1,7 @@
 import zipfile
 import time
 import os
-from SaitamaRobot.event import register
+from SaitamaRobot.events import register
 from SaitamaRobot import TEMP_DOWNLOAD_DIRECTORY
 from SaitamaRobot import Client
 from telethon import types
