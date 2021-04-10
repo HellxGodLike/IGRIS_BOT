@@ -60,3 +60,5 @@ html2text
 flag
 bs4
 youtube_search_python
+search_engine_parser
+asyncio
