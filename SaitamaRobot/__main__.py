@@ -192,8 +192,8 @@ def start(update: Update, context: CallbackContext):
                           [    
                               InlineKeyboardButton(
                               text="Help❓", callback_data="help_back"
-                          ),
-                          ]]]
+                          )),
+                          ]]
     else:
         update.effective_message.reply_text(
             "I'm online!\n<b>Up since:</b> <code>{}</code>".format(uptime),
