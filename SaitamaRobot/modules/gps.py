@@ -1,5 +1,5 @@
 import os
-from Saitama import telethn as tbot
+from SaitamaRobot import telethn as tbot
 from geopy.geocoders import Nominatim
 from SaitamaRobot.events import register
 from SaitamaRobot import *
