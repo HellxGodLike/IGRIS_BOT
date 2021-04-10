@@ -16,7 +16,7 @@
 
 from sqlalchemy import Column, Numeric, String
 
-from PglRobot.modules.sql import BASE, SESSION
+from SaitamaRobot.modules.sql import BASE, SESSION
 
 
 class forceSubscribe(BASE):
