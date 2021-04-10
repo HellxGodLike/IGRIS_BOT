@@ -33,6 +33,7 @@ gtts
 nekos.py
 fontTools
 typing
+telegraph
 tswift
 cachetools
 pyowm
