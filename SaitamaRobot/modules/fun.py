@@ -11,6 +11,7 @@ from SaitamaRobot import dispatcher
 from SaitamaRobot.modules.disable import DisableAbleCommandHandler
 from SaitamaRobot.modules.helper_funcs.chat_status import (is_user_admin)
 from SaitamaRobot.modules.helper_funcs.extraction import extract_user
+from SaitamaRobot.modules.helper_funcs.alternate import send_message, typing_action
 
 GIF_ID = 'CgACAgUAAx0EVmwfqQACElhfo3yZv1njCC11INcQSAi4UlN8vwACqwADg_8wVeGSv41OYU6zHgQ'
 
