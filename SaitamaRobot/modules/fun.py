@@ -275,6 +275,10 @@ __help__ = """
  - - - - - - - - - - - - -
 *Image Search"
  ✶ /reverse: Does a reverse image search of the media which it was replied to.
+ - - - - - - - - - - - - -
+*Cricket*
+
+ ✶ /cs*:* Latest live scores from cricinfo
 
 """
 
