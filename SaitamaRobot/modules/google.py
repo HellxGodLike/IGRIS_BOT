@@ -5,7 +5,7 @@ from telethon import *
 from telethon.tl import functions, types
 from telethon.tl.types import *
 
-from SaitamaRobot.event import register
+from SaitamaRobot.events import register
 
 
 async def is_register_admin(chat, user):
