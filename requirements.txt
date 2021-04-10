@@ -20,7 +20,7 @@ CurrencyConverter
 googletrans
 jikanpy
 speedtest-cli
-coffeehouse
+coffeehouse!
 regex
 bleach
 git+https://github.com/starry69/python-markdown2.git
@@ -51,4 +51,5 @@ validators
 youtube_dl
 google_trans_new
 #googletrans
+youtube_search
 secureme
