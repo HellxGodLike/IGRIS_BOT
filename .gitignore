@@ -11,6 +11,7 @@ log.txt
 .vscode
 SaitamaRobot/modules/helper_funcs/temp.txt
 SaitamaRobot/elevated_users.json
+SaitamaRobot/TEMP_DOWNLOAD_DIRECTORY
 start-3.6.bat
 *.session
 kangsticker.png
