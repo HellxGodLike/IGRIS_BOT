@@ -272,6 +272,10 @@ __help__ = """
    - - - - - - - - - - - 
 *GPS*
  ✶ /gps <location>*:* Get gps location.
+ - - - - - - - - - - - - -
+*Image Search"
+ ✶ /reverse: Does a reverse image search of the media which it was replied to.
+
 """
 
 INSULT_HANDLER = DisableAbleCommandHandler("insult", insult)
