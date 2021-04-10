@@ -1,6 +1,6 @@
-from Saitama import telethn as tbot
+from SaitamaRobot import telethn as tbot
 import os
-from Saitama.events import register
+from SaitamaRobot.events import register
 import secureme
 
 @register(pattern="^/encrypt ?(.*)")
