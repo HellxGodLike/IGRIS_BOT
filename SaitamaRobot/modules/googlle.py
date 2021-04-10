@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import urllib
-from MashaRoBot import telethn as tbot
+from SaitamaRobot import telethn as tbot
 import glob
 import io
 import os
@@ -21,9 +21,9 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 
-from MashaRoBot import *
+from SaitamaRobot import *
 
-from MashaRoBot.events import register
+from SaitamaRobot.events import register
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36"
@@ -53,7 +53,7 @@ async def _(event):
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
-            msg += f"❍[{title}]({link})\n**{desc}**\n\n"
+            msg += f"✶[{title}]({link})\n**{desc}**\n\n"
         except IndexError:
             break
     await webevent.edit(
