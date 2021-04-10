@@ -6,7 +6,7 @@ from telethon.tl import functions, types
 from telethon.tl.types import *
 
 from SaitamaRobot.events import register
-
+from SaitamaRobot import telethn
 
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
