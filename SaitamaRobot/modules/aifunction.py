@@ -76,7 +76,7 @@ async def hmm(event):
   if "Out of all ninja turtle" in result:
    pro = "Sorry! looks I missed that. I'm at your service ask anthing sir?"
   if "ann" in result:
-   pro = "My name is Jarvis"
+   pro = "My name is Igris"
   if not "en" in lan and not lan == "":
     pro = translator.translate(pro, lang_tgt=lan[0])
   try:
