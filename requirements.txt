@@ -66,4 +66,5 @@ python-arq
 motor
 dnspython
 cryptography
+pymongo
 pykeyboard
