@@ -94,6 +94,7 @@ if ENV:
     SUPPORT_CHAT = os.environ.get('SUPPORT_CHAT', None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
+    BOT_ID = 1412878118
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get('BL_CHATS', "").split())
