@@ -11,7 +11,7 @@ Reply to a message with /karma to check a user's karma
 Send /karma without replying to any message to chek karma list of top 10 users"""
 
 
-regex_upvote = r"^((?i)\+|\+\+|\+1|thank you|👍)$"
+regex_upvote = r"^((?i)\+|\+\+|\+1|thx|tnx|ty|thank you|thanx|thanks|pro|cool|good|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎)$"
 
 
@@ -26,6 +26,7 @@ regex_downvote = r"^(\-|\-\-|\-1|👎)$"
     & ~filters.edited,
     group=karma_positive_group
 )
+
 async def upvote(_, message):
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -58,6 +59,7 @@ async def upvote(_, message):
     & ~filters.edited,
     group=karma_negative_group
 )
+
 async def downvote(_, message):
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
@@ -80,6 +82,7 @@ async def downvote(_, message):
 
 
 @pgram.on_message(filters.command("karma") & filters.group)
+
 async def karma(_, message):
     chat_id = message.chat.id
 
@@ -98,7 +101,7 @@ async def karma(_, message):
             if limit > 9:
                 break
             try:
-                user_name = (await app.get_users(int(user_idd))).username
+                user_name = (await pgram.get_users(int(user_idd))).username
             except Exception:
                 continue
             msg += f"{user_name} : `{karma_count}`\n"
