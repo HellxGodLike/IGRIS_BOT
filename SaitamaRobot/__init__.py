@@ -77,6 +77,7 @@ if ENV:
     DB_URI = os.environ.get('DATABASE_URL')
     REDIS_URL = os.environ.get('REDIS_URL')
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    ARQ_API = os.environ.get("ARQ_API_BASE_URL", None)
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
@@ -203,6 +204,7 @@ telethn = TelegramClient("saitama", API_ID, API_HASH)
 pgram = Client("IgrisPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.SaitamaRobot
+arq = ARQ(ARQ_API)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
