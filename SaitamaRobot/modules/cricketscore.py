@@ -1,5 +1,4 @@
-# credits  @chsaiujwal @daisyxrobot
-# ported to masha @Mr_Dark_Prince
+
 
 import urllib.request
 
