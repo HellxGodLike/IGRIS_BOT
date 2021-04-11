@@ -62,3 +62,8 @@ search_engine_parser
 asyncio
 bing_image_downloader
 googletrans==4.0.0-rc1
+python-arq
+motor
+dnspython
+cryptography
+pykeyboard
