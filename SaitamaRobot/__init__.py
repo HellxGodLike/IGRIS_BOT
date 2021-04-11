@@ -13,7 +13,7 @@ from pyrogram import Client, errors
 
 StartTime = time.time()
 mongo_client = MongoClient
-db = mongo_client.SaitamaRobot
+db = mongo_client.wbb
 
 # enable logging
 logging.basicConfig(
