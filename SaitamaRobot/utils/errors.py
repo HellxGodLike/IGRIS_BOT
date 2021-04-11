@@ -1,7 +1,7 @@
 import sys
 import traceback
 from functools import wraps
-from wbb import app, LOG_GROUP_ID
+from SaitamaRobot import pgram, LOG_GROUP_ID
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 
