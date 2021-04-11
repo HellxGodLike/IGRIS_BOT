@@ -5,12 +5,6 @@ import time
 import spamwatch
 
 import telegram.ext as tg
-from config import (
-    BOT_TOKEN, API_ID, API_HASH, SUDO_USERS_ID, PHONE_NUMBER,
-    LOG_GROUP_ID, FERNET_ENCRYPTION_KEY, MONGO_DB_URI,
-    WELCOME_DELAY_KICK_SEC, ARQ_API_BASE_URL as ARQ_API,
-    MAIN_CHATS, GBAN_LOG_GROUP_ID
-)
 from redis import StrictRedis
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from Python_ARQ import ARQ
@@ -18,7 +12,7 @@ from telethon import TelegramClient
 from pyrogram import Client, errors
 
 StartTime = time.time()
-mongo_client = MongoClient(MONGO_DB_URI)
+mongo_client = MongoClient
 db = mongo_client.SaitamaRobot
 
 # enable logging
