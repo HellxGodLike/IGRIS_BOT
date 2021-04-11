@@ -63,3 +63,4 @@ youtube_search_python
 search_engine_parser
 asyncio
 bing_image_downloader
+functools
