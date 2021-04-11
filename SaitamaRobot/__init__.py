@@ -6,6 +6,8 @@ import spamwatch
 
 import telegram.ext as tg
 from redis import StrictRedis
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from Python_ARQ import ARQ
 from telethon import TelegramClient
 from pyrogram import Client, errors
 
