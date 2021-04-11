@@ -5,7 +5,12 @@ import time
 import spamwatch
 
 import telegram.ext as tg
-from config import MONGO_DB_URI
+from config import (
+    BOT_TOKEN, API_ID, API_HASH, SUDO_USERS_ID, PHONE_NUMBER,
+    LOG_GROUP_ID, FERNET_ENCRYPTION_KEY, MONGO_DB_URI,
+    WELCOME_DELAY_KICK_SEC, ARQ_API_BASE_URL as ARQ_API,
+    MAIN_CHATS, GBAN_LOG_GROUP_ID
+)
 from redis import StrictRedis
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from Python_ARQ import ARQ
@@ -80,7 +85,7 @@ if ENV:
     API_HASH = os.environ.get('API_HASH', None)
     DB_URI = os.environ.get('DATABASE_URL')
     REDIS_URL = os.environ.get('REDIS_URL')
-    DB = os.environ.get('MONGO_DB_URI')
+    MONGO_DB_URI = os.environ.get('MONGO_DB_URI')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
