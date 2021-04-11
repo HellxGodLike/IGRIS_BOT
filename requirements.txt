@@ -41,7 +41,6 @@ cachetools
 pyowm
 tabulate
 parsel
-googletrans
 mtranslate
 pyrogram
 tgcrypto
@@ -63,4 +62,4 @@ youtube_search_python
 search_engine_parser
 asyncio
 bing_image_downloader
-functools
+googletrans==4.0.0-rc1
