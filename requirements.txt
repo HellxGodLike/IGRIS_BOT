@@ -58,3 +58,4 @@ html2text
 countryinfo
 youtube_search_python
 youtube_search
+pymongo
