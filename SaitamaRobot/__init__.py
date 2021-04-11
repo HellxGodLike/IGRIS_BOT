@@ -10,6 +10,8 @@ from telethon import TelegramClient
 from pyrogram import Client, errors
 
 StartTime = time.time()
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.SaitamaRobot
 
 # enable logging
 logging.basicConfig(
@@ -75,6 +77,7 @@ if ENV:
     API_HASH = os.environ.get('API_HASH', None)
     DB_URI = os.environ.get('DATABASE_URL')
     REDIS_URL = os.environ.get('REDIS_URL')
+    db = os.environ.get('MONGO_DB_URI')
     DONATION_LINK = os.environ.get('DONATION_LINK')
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
