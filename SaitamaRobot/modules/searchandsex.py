@@ -13,7 +13,7 @@ __HELP__ = '''/ud - Query Urban Dictionary
 # ud -  urbandictionary
 
 
-@app.on_message(filters.command("ud") & ~filters.edited)
+@pgram.on_message(filters.command("ud") & ~filters.edited)
 @capture_err
 async def urbandict(_, message):
     if len(message.command) < 2:
@@ -39,7 +39,7 @@ async def urbandict(_, message):
 # StackOverflow [This is also a google search with some added args]
 
 
-@app.on_message(filters.command("so") & ~filters.edited)
+@pgram.on_message(filters.command("so") & ~filters.edited)
 @capture_err
 async def stack(_, message):
     try:
@@ -67,7 +67,7 @@ async def stack(_, message):
 # Github [This is also a google search with some added args]
 
 
-@app.on_message(filters.command("gh") & ~filters.edited)
+@pgram.on_message(filters.command("gh") & ~filters.edited)
 @capture_err
 async def github(_, message):
     try:
@@ -95,7 +95,7 @@ async def github(_, message):
 # YouTube
 
 
-@app.on_message(filters.command("yt") & ~filters.edited)
+@pgram.on_message(filters.command("yt") & ~filters.edited)
 @capture_err
 async def ytsearch(_, message):
     try:
