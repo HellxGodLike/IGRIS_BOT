@@ -1,6 +1,6 @@
 from search_engine_parser import GoogleSearch
 from pyrogram import filters
-from SaitamaRobot import app, arq
+from SaitamaRobot import pgram, arq
 from SaitamaRobot.utils.errors import capture_err
 
 __MODULE__ = "Search"
