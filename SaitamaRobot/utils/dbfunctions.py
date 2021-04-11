@@ -1,15 +1,8 @@
 from SaitamaRobot import db
 from typing import Dict, List, Union
 
-
-notesdb = db.notes
-filtersdb = db.filters
-warnsdb = db.warns
 karmadb = db.karma
-chatsdb = db.chats
-gbansdb = db.gban
-coupledb = db.couple
-captchadb = db.captcha
+
 
 """ Notes functions """
 
