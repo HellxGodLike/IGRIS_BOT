@@ -12,7 +12,7 @@ from telethon import TelegramClient
 from pyrogram import Client, errors
 
 StartTime = time.time()
-mongo_client = MongoClient(MONGO_DB_URI)
+mongo_client = MongoClient
 db = mongo_client.SaitamaRobot
 
 # enable logging
