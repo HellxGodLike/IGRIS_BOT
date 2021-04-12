@@ -29,6 +29,7 @@ If you want multiple buttons on the same line, use :same, as such:
 This will create two buttons on a single line, instead of one button per line.
 
 Keep in mind that your message <b>MUST</b> contain some text other than just a button!
+
 """
 
 
@@ -96,6 +97,7 @@ Example:
  `/cash 1 usd inr`
 Output: `1.0 USD = 75.505 INR`
  ✶ `/animequotes`*:* gives random anime quotes
+ ✶ `/json`*:* gives the json detailed info of a msg
  
 
 """
