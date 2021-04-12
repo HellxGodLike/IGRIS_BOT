@@ -10,6 +10,8 @@ from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from Python_ARQ import ARQ
 from telethon import TelegramClient
 from pyrogram import Client, errors
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.SaitamaRobot
 
 StartTime = time.time()
 # enable logging
