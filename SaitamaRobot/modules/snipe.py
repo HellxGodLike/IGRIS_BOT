@@ -34,14 +34,7 @@ def snipe(update: Update, context: CallbackContext):
                 "Couldn't send the message. Perhaps I'm not part of that group?")
 
 
-__help__ = """
 
-──「 *Sudo only:* 」──
--> /snipe <chatid> <string>
-Make me send a message to a specific chat.
-"""
-
-__mod_name__ = "Snipe"
 
 SNIPE_HANDLER = CommandHandler(
     "snipe",
