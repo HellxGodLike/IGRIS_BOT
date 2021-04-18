@@ -340,7 +340,7 @@ __help__ = """
    
  
 """
-__mod name__ = "command disabling"
+__mod_name__ = "Command disabling"
 
 else:
     DisableAbleCommandHandler = CommandHandler
