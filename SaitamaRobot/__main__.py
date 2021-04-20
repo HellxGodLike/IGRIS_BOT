@@ -51,24 +51,22 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hello {},My Name is IGRIS
-𝐈 𝐀𝐌 𝐀 𝐑𝐎𝐘𝐀𝐋 𝐊𝐍𝐈𝐆𝐇𝐓 𝐅𝐑𝐎𝐌 𝐒𝐎𝐋𝐎 𝐋𝐄𝐕𝐄𝐋𝐈𝐍𝐆.
-I will help you manage your group.
-TO KNOW MY COMMANDS CLICK /help.
+Hey! {} my name is Patrick star
+I'm a group management bot, put me in your group.
+I'll help organize your group.
+To find out all the commands type 👉 /help.
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm a Shadow From Solo Leveling,I will help you manage your groups! Have a look at the following for an idea of some of \
+Hey! I am a patrick star who is not too stupid,I will help you manage your groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 
-*Main* commands available:
- • /help: PM's you this message.
- • /help <module name>: PM's you info about that module.
- • /donate: information on how to donate!
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
+*Main* commands available:[⭐](https://telegra.ph/file/8ac1f4246ee8b700baca2.jpg)
+ 🧠 /help: PM's you this message.
+ 🧠 /help <module name>: PM's you info about that module.
+ 🧠 /settings:
+   🧠 in PM: will send you your settings for all supported modules.
+   🧠 in a group: will redirect you to pm, with all that chat's settings.
 
 
 {}
@@ -77,7 +75,7 @@ And the following:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-SAITAMA_IMG = "https://telegra.ph/file/3d6b5ac78befd0bffac47.mp4"
+SAITAMA_IMG = "https://telegra.ph/file/902a174a53157e56a95af.mp4"
 
 DONATE_STRING = """donate to the original writer of the Base code, Paul
 There are two ways of supporting him; [PayPal](paypal.me/PaulSonOfLars), or [Monzo](monzo.me/paulnionvestergaardlarsen)."""
@@ -178,17 +176,17 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(                   
                           [[
                               InlineKeyboardButton(
-                              text="🔥Add IGRIS To Your Group🔥",
+                              text="🧠Add patrick to Your Group🧠",
                               url="t.me/{}?startgroup=true".format(
                                   context.bot.username))
                           ], 
                           [
                               InlineKeyboardButton(
-                              text="🍁Support Group🍁",
-                              url=f"https://t.me/IGRISBOTSUPPORT"),
+                              text="✨updates chanel✨",
+                              url=f"https://t.me/NathalieBotSupportt"),
                               InlineKeyboardButton(
-                              text="✨Updates Channel✨",
-                              url="https://t.me/IGRISROBOT_SUPPORT")
+                              text="🐱my owner🐱",
+                              url="https://t.me/Nathalie_Agathaa")
                           ]])) 
     else:
         update.effective_message.reply_text(
