@@ -1,5 +1,5 @@
 from SaitamaRobot import app, arq, BOT_ID, DRAGONS
-from SaitamaRobot.core.decorators.errors import capture_err
+from SaitamaRobot.utils.errors import capture_err
 from SaitamaRobot.utils.filter_groups import chatbot_group
 from pyrogram import filters
 
