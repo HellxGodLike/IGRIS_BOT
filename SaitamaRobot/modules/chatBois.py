@@ -4,7 +4,7 @@ from SaitamaRobot.utils.filter_groups import chatbot_group
 from pyrogram import filters
 from SaitamaRobot.modules.karmasex import arq
 
-BOT_ID = "1412878118"
+BOT_ID = 1412878118
 
 __MODULE__ = "ChatBot"
 __HELP__ = """
