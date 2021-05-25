@@ -97,7 +97,6 @@ if ENV:
     SPAMWATCH_SUPPORT_CHAT = os.environ.get('SPAMWATCH_SUPPORT_CHAT', None)
     SPAMWATCH_API = os.environ.get('SPAMWATCH_API', None)
     BOT_ID = 1412878118
-    ARQ_API = KTUCIP-UCNNCM-ADGVHH-VSUKHE-ARQ
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get('BL_CHATS', "").split())
@@ -206,7 +205,6 @@ telethn = TelegramClient("saitama", API_ID, API_HASH)
 pgram = Client("IgrisPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.SaitamaRobot
-arq = ARQ(ARQ_API)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
