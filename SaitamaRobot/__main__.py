@@ -54,6 +54,7 @@ PM_START_TEXT = """
 Hello {},My Name is IGRIS
 𝐈 𝐀𝐌 𝐀 𝐑𝐎𝐘𝐀𝐋 𝐊𝐍𝐈𝐆𝐇𝐓 𝐅𝐑𝐎𝐌 𝐒𝐎𝐋𝐎 𝐋𝐄𝐕𝐄𝐋𝐈𝐍𝐆.
 I will help you manage your group.
+*Important Note before using that bot* [click this](https://t.me/IGRISXUPDATES/5)
 TO KNOW MY COMMANDS CLICK /help.
 """
 
@@ -61,7 +62,7 @@ HELP_STRINGS = """
 Hey there! My name is *{}*.
 I'm a Shadow From Solo Leveling,I will help you manage your groups! Have a look at the following for an idea of some of \
 the things I can help you with.
-
+*Important Note before using that bot* [click this](https://t.me/IGRISXUPDATES/5)
 *Main* [▼・ᴥ・▼](https://telegra.ph/file/44bc9ad06db204bff2bed.jpg) Commands available:
  ✶ add this below /help: PM's you this message.
  ✶ add this below /help <module name>: PM's you info about that module.
