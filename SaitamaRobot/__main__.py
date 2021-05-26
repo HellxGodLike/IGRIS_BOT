@@ -188,7 +188,7 @@ def start(update: Update, context: CallbackContext):
                               url=f"https://t.me/IGRISBOTSUPPORT"),
                               InlineKeyboardButton(
                               text="✨Updates Channel✨",
-                              url="https://t.me/IGRISROBOT_SUPPORT")
+                              url="https://t.me/IGRISXUPDATES")
                           ]]))
                           
     else:
