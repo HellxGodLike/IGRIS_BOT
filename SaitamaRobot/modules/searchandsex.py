@@ -12,32 +12,6 @@ __HELP__ = '''/ud - Query Urban Dictionary
 /gh - Query GitHub
 /yt - Query YouTube'''
 
-# ud -  urbandictionary
-
-
-@pgram.on_message(filters.command("ud") & ~filters.edited)
-@capture_err
-async def urbandict(_, message):
-    if len(message.command) < 2:
-        await message.reply_text('"/ud" Needs An Argument.')
-        return
-    text = message.text.split(None, 1)[1]
-    try:
-        results = await arq.urbandict(text)
-        reply_text = f"""**Definition:** __{results[0].definition}__
-
-**Example:** __{results[0].example}__"""
-    except IndexError:
-        reply_text = ("Sorry could not find any matching results!")
-    ignore_chars = "[]"
-    reply = reply_text
-    for chars in ignore_chars:
-        reply = reply.replace(chars, "")
-    if len(reply) >= 4096:
-        reply = reply[:4096]
-    await message.reply_text(reply)
-
-
 # StackOverflow [This is also a google search with some added args]
 
 
